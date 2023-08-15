@@ -38,6 +38,7 @@ android {
 
 dependencies {
 
+
     def androidVersion = '1.7.0'
     def appVersion = '1.6.1'
     def materialVersion = '1.9.0'
@@ -45,6 +46,7 @@ dependencies {
     def unitTestVersion = '4.13.2'
     def testImplVersion = '1.1.5'
     def espressoVersion = '3.5.1'
+    def navVersion = '2.6.0'
     implementation "androidx.core:core-ktx:$androidVersion"
     implementation "androidx.appcompat:appcompat:$appVersion"
     implementation "com.google.android.material:material:$materialVersion"
@@ -52,6 +54,9 @@ dependencies {
     testImplementation "junit:junit:$unitTestVersion"
     androidTestImplementation "androidx.test.ext:junit:$testImplVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+
+    implementation "androidx.navigation:navigation-fragment-ktx:$navVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$navVersion"
 
     //UI
     def circleView = '3.1.0'
