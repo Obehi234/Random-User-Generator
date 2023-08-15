@@ -10,9 +10,4 @@
         android:name="com.example.randomuserapplication.UserListFragment"
         android:label="fragment_user_list"
         tools:layout="@layout/fragment_user_list" />
-    <fragment
-        android:id="@+id/userDetailsFragment"
-        android:name="com.example.randomuserapplication.UserDetailsFragment"
-        android:label="fragment_user_details"
-        tools:layout="@layout/fragment_user_details" />
 </navigation>
