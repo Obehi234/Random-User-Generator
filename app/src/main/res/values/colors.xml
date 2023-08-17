@@ -11,4 +11,5 @@
     <color name="border_dark">#FF000000</color>
     <color name="background_grey">#FAFAFA</color>
     <color name="card_bg">#F6F4F6</color>
+    <color name="searchView_bg">#EFF1FA</color>
 </resources>

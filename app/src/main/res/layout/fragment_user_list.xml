@@ -8,13 +8,13 @@
 
     <SearchView
         android:id="@+id/searchBar"
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_10dp"
         android:layout_marginTop="@dimen/margin_6dp"
-        android:queryHint="Search user..."
+        android:queryHint="@string/custom_query_hint"
         android:iconifiedByDefault="false"
-        android:background="#EFF1FA"
+        android:background="@color/searchView_bg"
         android:theme="@style/CustomSearchViewStyle"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
