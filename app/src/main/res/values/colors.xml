@@ -10,4 +10,5 @@
     <color name="grey_text">#A9A9A9</color>
     <color name="border_dark">#FF000000</color>
     <color name="background_grey">#FAFAFA</color>
+    <color name="card_bg">#F6F4F6</color>
 </resources>
