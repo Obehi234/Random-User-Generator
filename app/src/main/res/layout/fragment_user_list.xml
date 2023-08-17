@@ -14,8 +14,8 @@
         android:layout_marginTop="@dimen/margin_6dp"
         android:queryHint="@string/custom_query_hint"
         android:iconifiedByDefault="false"
-        android:background="@color/searchView_bg"
-        android:theme="@style/CustomSearchViewStyle"
+        android:searchHintIcon="@color/grey_text"
+        android:background="@color/border_dark"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>

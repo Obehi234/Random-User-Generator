@@ -17,7 +17,7 @@
     <style name="CustomSearchViewStyle" parent="Widget.AppCompat.SearchView">
         <item name="android:searchIcon">@drawable/custom_search_icon</item>
         <item name="android:queryHint">@string/custom_query_hint</item>
-        <item name="android:textColorHint">@color/grey_text</item> <!-- Dark grey color for query hint -->
+        <item name="android:textColorHint">@color/border_dark</item> <!-- Dark grey color for query hint -->
     </style>
 
 
