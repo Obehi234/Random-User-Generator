@@ -16,5 +16,8 @@ interface UserDao {
     @Query("SELECT * FROM $USER_TABLE")
     fun getAllUsers() : LiveData<List<UserEntity>>
 
+    @Query("SELECT * FROM $USER_TABLE WHERE id = :id OR FirstName = :firstName LIMIT 1")
+    suspend fun getSingleUserByIdOrFirstName(id: String, firstName: String): UserEntity
+
 
 }
