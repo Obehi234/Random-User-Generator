@@ -1,7 +1,9 @@
 package com.example.randomuserapplication.repository
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import com.example.randomuserapplication.db.UserDao
+import com.example.randomuserapplication.db.UserEntity
 import com.example.randomuserapplication.network.UserService
 import com.example.randomuserapplication.util.DataMappingUtils
 import javax.inject.Inject
@@ -29,5 +31,9 @@ class UserRepository @Inject constructor(
         } catch (e: Exception) {
             Log.e("CHECK_DB", "Error fetching and saving users: ${e.message}")
         }
+    }
+
+    fun getUsersFromDatabase(): LiveData<List<UserEntity>> {
+        return userDao.getAllUsers()
     }
 }
