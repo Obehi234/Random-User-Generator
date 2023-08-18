@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.randomuserapplication.databinding.FragmentUserListBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class UserListFragment : Fragment() {
     private var _binding: FragmentUserListBinding?= null
     private val binding get() = _binding!!
