@@ -1,4 +1,4 @@
-package com.example.randomuserapplication
+package com.example.randomuserapplication.presentation.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
