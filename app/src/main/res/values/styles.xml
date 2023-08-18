@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="PillButtonStyle" parent= "Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_10sp</item>
+        <item name="android:textColor">@color/grey_text</item>
+        <item name="android:minWidth">@dimen/width_0dp</item>
+        <item name="android:minHeight">@dimen/height_0dp</item>
+        <item name="android:paddingStart">@dimen/padding_8dp</item>
+        <item name="android:paddingEnd">@dimen/padding_8dp</item>
+        <item name="android:paddingTop">@dimen/padding_4dp</item>
+        <item name="android:paddingBottom">@dimen/padding_4dp</item>
+        <item name="android:background">@drawable/btn_bg</item>
+    </style>
+
+    <style name="CustomSearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:searchIcon">@drawable/custom_search_icon</item>
+        <item name="android:queryHint">@string/custom_query_hint</item>
+        <item name="android:textColorHint">@color/border_dark</item> <!-- Dark grey color for query hint -->
+    </style>
+
+
+
+</resources>
