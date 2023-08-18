@@ -9,7 +9,6 @@ import com.example.randomuserapplication.util.Constants.USER_TABLE
 
 @Dao
 interface UserDao {
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertToDatabase(users: List<UserEntity>)
 
