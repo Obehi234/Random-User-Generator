@@ -1,6 +1,5 @@
 package com.example.randomuserapplication.db
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -13,7 +12,6 @@ interface UserDao {
     suspend fun insertToDatabase(users: List<UserEntity>)
 
     @Query("SELECT * FROM $USER_TABLE")
-    fun getAllUsers() : LiveData<List<UserEntity>>
-
+    fun getAllUsers() : List<UserEntity>
 
 }

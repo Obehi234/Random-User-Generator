@@ -1,7 +1,6 @@
 package com.example.randomuserapplication.repository
 
 import android.util.Log
-import androidx.lifecycle.LiveData
 import com.example.randomuserapplication.db.UserDao
 import com.example.randomuserapplication.db.UserEntity
 import com.example.randomuserapplication.network.UserService
@@ -19,9 +18,7 @@ class UserRepository @Inject constructor(
             if (response.isSuccessful) {
                 val userList = response.body()?.results ?: emptyList()
                 val userEntities = userList.map { result ->
-                    Log.d("CHECK_DB", "Mapping result: $result")
                     val userEntity = DataMappingUtils.mapResultToUserEntity(result)
-                    Log.d("CHECK_DB", "Mapped userEntity: $userEntity")
                     userEntity
                 }
                 userDao.insertToDatabase(userEntities)
@@ -33,7 +30,7 @@ class UserRepository @Inject constructor(
         }
     }
 
-    fun getUsersFromDatabase(): LiveData<List<UserEntity>> {
+    fun getUsersFromDatabase(): List<UserEntity> {
         return userDao.getAllUsers()
     }
 }
