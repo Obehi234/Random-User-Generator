@@ -26,6 +26,13 @@ class UserListFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setUpRV()
+    }
 
+    private fun setUpRV() {
+        rvAdapter = UserAdapter()
+    }
 
 }
