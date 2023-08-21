@@ -33,6 +33,12 @@ class UserListFragment : Fragment() {
 
     private fun setUpRV() {
         rvAdapter = UserAdapter()
+        binding.rvUserList.adapter = rvAdapter
+        userViewModel.apply {
+            addUsersToDatabase()
+            rvAdapter.submitList(usersList)
+        }
     }
+
 
 }
