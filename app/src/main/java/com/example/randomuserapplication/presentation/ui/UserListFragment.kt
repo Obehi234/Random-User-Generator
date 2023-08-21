@@ -1,14 +1,13 @@
 package com.example.randomuserapplication.presentation.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.randomuserapplication.adapter.UserAdapter
 import com.example.randomuserapplication.databinding.FragmentUserListBinding
-import com.example.randomuserapplication.db.UserEntity
 import com.example.randomuserapplication.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -36,8 +35,9 @@ class UserListFragment : Fragment() {
     private fun setUpRV() {
         rvAdapter = UserAdapter()
         binding.rvUserList.adapter = rvAdapter
-        val userList = userViewModel.getUserList()
-        rvAdapter.submitList(userList)
+        userViewModel.userList.observe(viewLifecycleOwner){result->
+            rvAdapter.submitList(result)
+        }
 
     }
 

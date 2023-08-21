@@ -30,7 +30,7 @@ class UserRepository @Inject constructor(
         }
     }
 
-    fun getUsersFromDatabase(): List<UserEntity> {
+    suspend fun getUsersFromDatabase(): List<UserEntity> {
         return userDao.getAllUsers()
     }
 }
