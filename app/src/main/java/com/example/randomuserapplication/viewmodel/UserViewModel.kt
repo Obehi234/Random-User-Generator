@@ -14,12 +14,17 @@ class UserViewModel @Inject constructor(
    private val userRepository: UserRepository
 ) : ViewModel() {
 
+    val usersList: List<UserEntity> = userRepository.getUsersFromDatabase()
+
     fun addUsersToDatabase() {
         viewModelScope.launch {
             userRepository.fetchAndSaveUsers()
         }
     }
 
-    val usersList: List<UserEntity> = userRepository.getUsersFromDatabase()
+    fun getUserList() : List<UserEntity> {
+        return usersList
+    }
+
 
 }

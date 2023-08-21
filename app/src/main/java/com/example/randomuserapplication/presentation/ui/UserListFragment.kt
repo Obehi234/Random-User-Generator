@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.example.randomuserapplication.adapter.UserAdapter
 import com.example.randomuserapplication.databinding.FragmentUserListBinding
+import com.example.randomuserapplication.db.UserEntity
 import com.example.randomuserapplication.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,17 +29,21 @@ class UserListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        userViewModel.addUsersToDatabase()
         setUpRV()
     }
 
     private fun setUpRV() {
         rvAdapter = UserAdapter()
         binding.rvUserList.adapter = rvAdapter
-        userViewModel.apply {
-            addUsersToDatabase()
-            rvAdapter.submitList(usersList)
-        }
+        val userList = userViewModel.getUserList()
+        rvAdapter.submitList(userList)
+
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
 }
