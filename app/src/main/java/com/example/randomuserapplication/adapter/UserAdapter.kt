@@ -19,11 +19,9 @@ class UserAdapter : ListAdapter<UserEntity, UserAdapter.UserViewHolder>(UserDiff
                     .load(item.pictureUrl)
                     .into(profileImage)
 
-                val location = "${item.city}, ${item.country}"
-                userCity.text = location
+                userCity.text = "${item.city}, ${item.country}"
 
-                val fullName = "${item.firstName} ${item.lastName}"
-                profileName.text = fullName
+                profileName.text = "${item.firstName} ${item.lastName}"
 
                 followBtn.setOnClickListener {
                     followBtn.text = "Following"
