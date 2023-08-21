@@ -14,19 +14,24 @@ class UserAdapter : ListAdapter<UserEntity, UserAdapter.UserViewHolder>(UserDiff
 
     inner class UserViewHolder(private val binding: UserGridBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: UserEntity) {
-            Picasso.with(binding.root.context)
-                .load(item.pictureUrl)
-                .into(binding.profileImage)
+            binding.apply {
+                Picasso.with(root.context)
+                    .load(item.pictureUrl)
+                    .into(profileImage)
 
-            val location = "${item.city}, ${item.country}"
-            binding.userCity.text = location
-            val fullName = "${item.firstName} ${item.lastName}"
-            binding.profileName.text = fullName
-            binding.followBtn.setOnClickListener {
-                binding.followBtn.text = "Following"
-                Toast.makeText(binding.root.context, "Follow successful!", Toast.LENGTH_SHORT)
-                    .show()
+                val location = "${item.city}, ${item.country}"
+                userCity.text = location
+
+                val fullName = "${item.firstName} ${item.lastName}"
+                profileName.text = fullName
+
+                followBtn.setOnClickListener {
+                    followBtn.text = "Following"
+                    Toast.makeText(root.context, "Follow successful!", Toast.LENGTH_SHORT)
+                        .show()
+                }
             }
+
         }
     }
 
