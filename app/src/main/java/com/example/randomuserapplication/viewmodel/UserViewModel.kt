@@ -23,7 +23,7 @@ class UserViewModel @Inject constructor(
          addUsersToDatabase()
          observeUserListFromDatabase()
     }
-    fun addUsersToDatabase() {
+    private fun addUsersToDatabase() {
         viewModelScope.launch {
             userRepository.fetchAndSaveUsers()
         }
