@@ -20,14 +20,14 @@ class UserViewModel @Inject constructor(
     val userList: LiveData<List<UserEntity>> get() = _userList
 
     init {
-        observeUserListFromDatabase()
+         addUsersToDatabase()
+         observeUserListFromDatabase()
     }
     fun addUsersToDatabase() {
         viewModelScope.launch {
             userRepository.fetchAndSaveUsers()
         }
     }
-
      private fun observeUserListFromDatabase() {
         viewModelScope.launch {
             val users = userRepository.getUsersFromDatabase()
