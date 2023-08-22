@@ -23,11 +23,13 @@ class UserAdapter : ListAdapter<UserEntity, UserAdapter.UserViewHolder>(UserDiff
 
                 profileName.text = "${item.firstName} ${item.lastName}"
 
+
                 followBtn.setOnClickListener {
                     followBtn.text = "Following"
                     Toast.makeText(root.context, "Follow successful!", Toast.LENGTH_SHORT)
                         .show()
                 }
+
             }
 
         }

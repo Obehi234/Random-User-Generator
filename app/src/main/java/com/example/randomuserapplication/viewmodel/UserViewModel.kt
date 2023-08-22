@@ -16,7 +16,6 @@ class UserViewModel @Inject constructor(
 ) : ViewModel() {
 
     private var _userList = MutableLiveData<List<UserEntity>>()
-
     val userList: LiveData<List<UserEntity>> get() = _userList
 
     init {
