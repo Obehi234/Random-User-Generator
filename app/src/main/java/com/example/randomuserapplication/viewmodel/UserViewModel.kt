@@ -1,6 +1,7 @@
 package com.example.randomuserapplication.viewmodel
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.randomuserapplication.db.UserEntity
@@ -14,12 +15,24 @@ class UserViewModel @Inject constructor(
    private val userRepository: UserRepository
 ) : ViewModel() {
 
-    fun addUsersToDatabase() {
+    private var _userList = MutableLiveData<List<UserEntity>>()
+
+    val userList: LiveData<List<UserEntity>> get() = _userList
+
+    init {
+         addUsersToDatabase()
+         observeUserListFromDatabase()
+    }
+    private fun addUsersToDatabase() {
         viewModelScope.launch {
             userRepository.fetchAndSaveUsers()
         }
     }
-
-    val usersList: List<UserEntity> = userRepository.getUsersFromDatabase()
+     private fun observeUserListFromDatabase() {
+        viewModelScope.launch {
+            val users = userRepository.getUsersFromDatabase()
+            _userList.postValue(users)
+        }
+    }
 
 }

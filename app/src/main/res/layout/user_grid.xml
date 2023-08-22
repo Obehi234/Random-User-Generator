@@ -59,14 +59,22 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/profile_name" />
+            app:layout_constraintTop_toBottomOf="@id/profile_name"
+            android:layout_marginBottom="@dimen/margin_12dp"
+            app:layout_constraintBottom_toTopOf="@id/guideline_horizontal"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.82"/>
 
         <Button
             android:id="@+id/followBtn"
             style="@style/PillButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_12dp"
             android:layout_marginBottom="@dimen/margin_12dp"
             android:background="@drawable/btn_bg"
             android:text="@string/follow"
@@ -76,7 +84,7 @@
             app:layout_constraintEnd_toStartOf="@id/ContactBtn"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/userCity" />
+            app:layout_constraintTop_toBottomOf="@id/guideline_horizontal" />
 
         <Button
             android:id="@+id/ContactBtn"
@@ -84,12 +92,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_6dp"
-            android:layout_marginBottom="@dimen/margin_12dp"
             android:background="@drawable/btn_bg"
             android:text="@string/contact"
             android:textAllCaps="false"
             app:background="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/followBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/followBtn"
             app:layout_constraintTop_toTopOf="@id/followBtn" />
