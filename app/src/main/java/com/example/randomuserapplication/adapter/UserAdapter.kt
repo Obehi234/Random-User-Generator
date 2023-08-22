@@ -11,6 +11,7 @@ import com.example.randomuserapplication.db.UserEntity
 import com.squareup.picasso.Picasso
 
 class UserAdapter : ListAdapter<UserEntity, UserAdapter.UserViewHolder>(UserDiffCallback())  {
+    var onContactClickListener: ((userId: String, firstName: String) -> Unit)? = null
 
     inner class UserViewHolder(private val binding: UserGridBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: UserEntity) {
@@ -22,6 +23,12 @@ class UserAdapter : ListAdapter<UserEntity, UserAdapter.UserViewHolder>(UserDiff
                 userCity.text = "${item.city}, ${item.country}"
 
                 profileName.text = "${item.firstName} ${item.lastName}"
+
+                ContactBtn.setOnClickListener {
+                    val userId = item.id.toString()
+                    val firstName = item.firstName
+                    onContactClickListener?.invoke(userId, firstName)
+                }
 
 
                 followBtn.setOnClickListener {
