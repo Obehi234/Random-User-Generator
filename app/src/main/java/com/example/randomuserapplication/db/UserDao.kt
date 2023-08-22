@@ -14,4 +14,7 @@ interface UserDao {
     @Query("SELECT * FROM $USER_TABLE")
     suspend fun getAllUsers() : List<UserEntity>
 
+    @Query("SELECT * FROM $USER_TABLE WHERE ID = :id")
+    suspend fun getSingleUserById(id: String): UserEntity
+
 }
