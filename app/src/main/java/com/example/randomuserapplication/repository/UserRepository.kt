@@ -33,4 +33,8 @@ class UserRepository @Inject constructor(
     suspend fun getUsersFromDatabase(): List<UserEntity> {
         return userDao.getAllUsers()
     }
+
+    suspend fun getSingleUserById(userId: String) : UserEntity {
+        return userDao.getSingleUserById(userId)
+    }
 }
