@@ -18,6 +18,10 @@ class UserViewModel @Inject constructor(
     private var _userList = MutableLiveData<List<UserEntity>>()
     val userList: LiveData<List<UserEntity>> get() = _userList
 
+    private var _selectedUserId = MutableLiveData<String>()
+    val selectedUserId: LiveData<String> = _selectedUserId
+
+
     init {
          addUsersToDatabase()
          observeUserListFromDatabase()

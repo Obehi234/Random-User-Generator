@@ -11,7 +11,7 @@ import com.example.randomuserapplication.db.UserEntity
 import com.squareup.picasso.Picasso
 
 class UserAdapter : ListAdapter<UserEntity, UserAdapter.UserViewHolder>(UserDiffCallback())  {
-    var onContactClickListener: ((userId: String, firstName: String) -> Unit)? = null
+    var onContactClickListener: ((userId: String) -> Unit)? = null
 
     inner class UserViewHolder(private val binding: UserGridBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: UserEntity) {
@@ -27,7 +27,7 @@ class UserAdapter : ListAdapter<UserEntity, UserAdapter.UserViewHolder>(UserDiff
                 ContactBtn.setOnClickListener {
                     val userId = item.id.toString()
                     val firstName = item.firstName
-                    onContactClickListener?.invoke(userId, firstName)
+                    onContactClickListener?.invoke(userId)
                 }
 
 
