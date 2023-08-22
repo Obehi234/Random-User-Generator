@@ -1,11 +1,13 @@
 package com.example.randomuserapplication.presentation.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.randomuserapplication.adapter.UserAdapter
 import com.example.randomuserapplication.databinding.FragmentUserListBinding
 import com.example.randomuserapplication.viewmodel.UserViewModel
@@ -29,6 +31,12 @@ class UserListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpRV()
+        rvAdapter.onContactClickListener = {userId ->
+            userViewModel.setUserId(userId)
+            val action = UserListFragmentDirections.actionUserListFragmentToUserDetailsFragment()
+            findNavController().navigate(action)
+            Log.d("CHECK_ID", "USER ID is $userId")
+        }
 
     }
 
