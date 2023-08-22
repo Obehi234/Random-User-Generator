@@ -38,4 +38,8 @@ class UserViewModel @Inject constructor(
         }
     }
 
+    fun setUserId(userId: String) {
+        _selectedUserId.value = userId
+    }
+
 }
