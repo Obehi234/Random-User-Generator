@@ -16,7 +16,6 @@ class UserDetailsFragment : Fragment() {
     private var _binding: FragmentUserDetailsBinding? = null
     private val binding get() = _binding!!
     private val userViewModel: UserViewModel by activityViewModels()
-    private var userId = ""
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -28,7 +27,7 @@ class UserDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        userId = requireArguments().getString("userId") ?: ""
+        val userId = requireArguments().getString("userId") ?: ""
 
         viewLifecycleOwner.lifecycleScope.launch {
             val user = userViewModel.getSingleUser(userId)
