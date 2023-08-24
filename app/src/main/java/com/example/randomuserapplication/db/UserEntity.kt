@@ -6,11 +6,11 @@ import androidx.room.PrimaryKey
 import com.example.randomuserapplication.util.Constants.USER_TABLE
 
 @Entity(tableName = USER_TABLE)
-data class UserEntity (
+data class UserEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
     @ColumnInfo("Title")
-    val title:String,
+    val title: String,
     @ColumnInfo("FirstName")
     val firstName: String,
     @ColumnInfo("LastName")
@@ -37,4 +37,4 @@ data class UserEntity (
     val pictureLarge: String,
     @ColumnInfo("UserName")
     val userName: String
-    )
+)
