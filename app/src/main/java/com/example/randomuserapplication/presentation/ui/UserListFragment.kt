@@ -1,7 +1,6 @@
 package com.example.randomuserapplication.presentation.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,7 +34,6 @@ class UserListFragment : Fragment() {
             userViewModel.setUserId(userId)
             val action = UserListFragmentDirections.actionUserListFragmentToUserDetailsFragment()
             findNavController().navigate(action)
-            Log.d("CHECK_ID", "USER ID is $userId")
         }
 
     }
