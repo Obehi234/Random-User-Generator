@@ -11,10 +11,11 @@ import com.example.randomuserapplication.databinding.UserGridBinding
 import com.example.randomuserapplication.db.UserEntity
 import com.squareup.picasso.Picasso
 
-class UserAdapter : ListAdapter<UserEntity, UserAdapter.UserViewHolder>(UserDiffCallback())  {
+class UserAdapter : ListAdapter<UserEntity, UserAdapter.UserViewHolder>(UserDiffCallback()) {
     var onContactClickListener: ((userId: String) -> Unit)? = null
 
-    inner class UserViewHolder(private val binding: UserGridBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class UserViewHolder(private val binding: UserGridBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(item: UserEntity) {
             binding.apply {
                 Picasso.with(root.context)
@@ -33,7 +34,11 @@ class UserAdapter : ListAdapter<UserEntity, UserAdapter.UserViewHolder>(UserDiff
 
                 followBtn.setOnClickListener {
                     followBtn.text = root.context.getString(R.string.following)
-                    Toast.makeText(root.context, root.context.getString(R.string.followSuccess), Toast.LENGTH_SHORT)
+                    Toast.makeText(
+                        root.context,
+                        root.context.getString(R.string.followSuccess),
+                        Toast.LENGTH_SHORT
+                    )
                         .show()
                 }
 

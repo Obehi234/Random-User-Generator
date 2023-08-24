@@ -12,30 +12,32 @@ import javax.inject.Inject
 
 @HiltViewModel
 class UserViewModel @Inject constructor(
-   private val userRepository: UserRepository
+    private val userRepository: UserRepository
 ) : ViewModel() {
 
     private var _userList = MutableLiveData<List<UserEntity>>()
     val userList: LiveData<List<UserEntity>> get() = _userList
 
     init {
-         addUsersToDatabase()
-         observeUserListFromDatabase()
+        addUsersToDatabase()
+        observeUserListFromDatabase()
     }
+
     private fun addUsersToDatabase() {
         viewModelScope.launch {
             userRepository.fetchAndSaveUsers()
         }
     }
-     private fun observeUserListFromDatabase() {
+
+    private fun observeUserListFromDatabase() {
         viewModelScope.launch {
             val users = userRepository.getUsersFromDatabase()
             _userList.postValue(users)
         }
     }
 
-    suspend fun getSingleUser(userId: String) : UserEntity? {
-            return userRepository.getSingleUserById(userId)
+    suspend fun getSingleUser(userId: String): UserEntity {
+        return userRepository.getSingleUserById(userId)
     }
 
 }
