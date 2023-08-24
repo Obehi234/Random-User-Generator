@@ -18,6 +18,9 @@ class UserViewModel @Inject constructor(
     private var _userList = MutableLiveData<List<UserEntity>>()
     val userList: LiveData<List<UserEntity>> get() = _userList
 
+    private var _searchList = MutableLiveData<List<UserEntity>>()
+    val searchList: LiveData<List<UserEntity>> get() = _searchList
+
     init {
         addUsersToDatabase()
         observeUserListFromDatabase()
@@ -40,6 +43,13 @@ class UserViewModel @Inject constructor(
         return userRepository.getSingleUserById(userId)
     }
 
+     fun searchUsers(searchQuery: String) {
+        viewModelScope.launch {
+            val formattedQuery = "%$searchQuery%"
+            val searchUser = userRepository.searchUserByName(formattedQuery)
+            _searchList.postValue(searchUser)
+        }
 
+    }
 
 }

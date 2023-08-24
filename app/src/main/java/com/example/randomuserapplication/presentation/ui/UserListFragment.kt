@@ -41,8 +41,11 @@ class UserListFragment : Fragment() {
             }
 
             override fun onQueryTextChange(p0: String?): Boolean {
-                TODO("Not yet implemented")
+                p0?.let {
+                    userViewModel.
+                }
             }
+            return true
         })
 
     }
