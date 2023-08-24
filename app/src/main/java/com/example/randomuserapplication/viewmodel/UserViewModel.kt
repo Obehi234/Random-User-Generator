@@ -38,12 +38,8 @@ class UserViewModel @Inject constructor(
         }
     }
 
-    suspend fun getSingleUser() : UserEntity? {
-        val userId = selectedUserId.value
-        if(userId != null) {
+    suspend fun getSingleUser(userId: String) : UserEntity? {
             return userRepository.getSingleUserById(userId)
-        }
-        return null
     }
 
 }

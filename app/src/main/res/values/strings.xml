@@ -15,4 +15,5 @@
     <string name="userAge">Age</string>
     <string name="userAddress">Address</string>
     <string name="userLogInName">LogIn_Name</string>
+    <string name="UserProfileImage">User Profile Image</string>
 </resources>
