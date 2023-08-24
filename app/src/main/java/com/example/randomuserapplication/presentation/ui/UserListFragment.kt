@@ -35,6 +35,9 @@ class UserListFragment : Fragment() {
             val action = UserListFragmentDirections.actionUserListFragmentToUserDetailsFragment(userId)
             findNavController().navigate(action)
         }
+        userViewModel.searchList.observe(viewLifecycleOwner) { searchResult ->
+            rvAdapter.submitList(searchResult)
+        }
         binding.searchBar.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 return true
@@ -42,10 +45,11 @@ class UserListFragment : Fragment() {
 
             override fun onQueryTextChange(p0: String?): Boolean {
                 p0?.let {
-                    userViewModel.
+                    userViewModel.searchUsers(it)
                 }
+                return true
             }
-            return true
+
         })
 
     }
