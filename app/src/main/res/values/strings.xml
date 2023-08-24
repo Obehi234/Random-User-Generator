@@ -9,4 +9,10 @@
     <string name="followSuccess">Follow Successful!</string>
     <string name="userCity">City,</string>
     <string name="custom_query_hint">Search User …</string>
+    <string name="userTitle">Title</string>
+    <string name="userName">Name</string>
+    <string name="userGender">Gender</string>
+    <string name="userAge">Age</string>
+    <string name="userAddress">Address</string>
+    <string name="userLogInName">LogIn_Name</string>
 </resources>
