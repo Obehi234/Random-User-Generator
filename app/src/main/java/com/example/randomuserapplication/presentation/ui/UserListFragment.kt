@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.randomuserapplication.adapter.UserAdapter
 import com.example.randomuserapplication.databinding.FragmentUserListBinding
 import com.example.randomuserapplication.viewmodel.UserViewModel
@@ -29,6 +30,11 @@ class UserListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpRV()
+        rvAdapter.onContactClickListener = { userId ->
+            val action = UserListFragmentDirections.actionUserListFragmentToUserDetailsFragment(userId)
+            findNavController().navigate(action)
+        }
+
     }
 
     private fun setUpRV() {

@@ -16,8 +16,11 @@ class UserViewModel @Inject constructor(
 ) : ViewModel() {
 
     private var _userList = MutableLiveData<List<UserEntity>>()
-
     val userList: LiveData<List<UserEntity>> get() = _userList
+
+    private var _selectedUserId = MutableLiveData<String>()
+    val selectedUserId: LiveData<String> = _selectedUserId
+
 
     init {
          addUsersToDatabase()
@@ -33,6 +36,14 @@ class UserViewModel @Inject constructor(
             val users = userRepository.getUsersFromDatabase()
             _userList.postValue(users)
         }
+    }
+
+    suspend fun getSingleUser() : UserEntity? {
+        val userId = selectedUserId.value
+        if(userId != null) {
+            return userRepository.getSingleUserById(userId)
+        }
+        return null
     }
 
 }

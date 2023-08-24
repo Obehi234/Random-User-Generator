@@ -6,11 +6,13 @@ import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.randomuserapplication.R
 import com.example.randomuserapplication.databinding.UserGridBinding
 import com.example.randomuserapplication.db.UserEntity
 import com.squareup.picasso.Picasso
 
 class UserAdapter : ListAdapter<UserEntity, UserAdapter.UserViewHolder>(UserDiffCallback())  {
+    var onContactClickListener: ((userId: String) -> Unit)? = null
 
     inner class UserViewHolder(private val binding: UserGridBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: UserEntity) {
@@ -23,11 +25,18 @@ class UserAdapter : ListAdapter<UserEntity, UserAdapter.UserViewHolder>(UserDiff
 
                 profileName.text = "${item.firstName} ${item.lastName}"
 
+                ContactBtn.setOnClickListener {
+                    val userId = item.id.toString()
+                    onContactClickListener?.invoke(userId)
+                }
+
+
                 followBtn.setOnClickListener {
-                    followBtn.text = "Following"
-                    Toast.makeText(root.context, "Follow successful!", Toast.LENGTH_SHORT)
+                    followBtn.text = root.context.getString(R.string.following)
+                    Toast.makeText(root.context, root.context.getString(R.string.followSuccess), Toast.LENGTH_SHORT)
                         .show()
                 }
+
             }
 
         }
