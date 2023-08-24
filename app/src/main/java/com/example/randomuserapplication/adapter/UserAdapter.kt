@@ -26,7 +26,6 @@ class UserAdapter : ListAdapter<UserEntity, UserAdapter.UserViewHolder>(UserDiff
 
                 ContactBtn.setOnClickListener {
                     val userId = item.id.toString()
-                    val firstName = item.firstName
                     onContactClickListener?.invoke(userId)
                 }
 
