@@ -5,6 +5,8 @@
     <string name="john_doe">John Doe</string>
     <string name="contact">Contact</string>
     <string name="follow">Follow</string>
+    <string name="following">Following</string>
+    <string name="followSuccess">Follow Successful!</string>
     <string name="userCity">City,</string>
     <string name="custom_query_hint">Search User …</string>
 </resources>
