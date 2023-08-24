@@ -1,6 +1,7 @@
 package com.example.randomuserapplication.presentation.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,7 +29,9 @@ class UserDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         userId = requireArguments().getString("userId") ?: ""
+        Log.d("CHECK_USER_ID", "USER_ID - $userId")
         viewLifecycleOwner.lifecycleScope.launch {
             val user = userViewModel.getSingleUser(userId)
             binding.apply{
