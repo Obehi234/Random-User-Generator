@@ -7,7 +7,9 @@ import androidx.lifecycle.viewModelScope
 import com.example.randomuserapplication.db.UserEntity
 import com.example.randomuserapplication.repository.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -45,10 +47,17 @@ class UserViewModel @Inject constructor(
 
     fun searchUsers(searchQuery: String) {
         viewModelScope.launch {
-            val searchUser = userRepository.searchUserByName(searchQuery)
-            _searchList.postValue(searchUser)
+            if (searchQuery.isNotEmpty()) {
+                val searchUser = withContext(Dispatchers.IO) {
+                    userRepository.searchUserByName(searchQuery)
+                }
+                _searchList.postValue(searchUser)
+            }else{
+                observeUserListFromDatabase()
+            }
+
+
         }
 
     }
-
 }

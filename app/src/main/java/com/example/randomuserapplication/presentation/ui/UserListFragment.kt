@@ -32,27 +32,27 @@ class UserListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setUpRV()
         rvAdapter.onContactClickListener = { userId ->
-            val action = UserListFragmentDirections.actionUserListFragmentToUserDetailsFragment(userId)
+            val action =
+                UserListFragmentDirections.actionUserListFragmentToUserDetailsFragment(userId)
             findNavController().navigate(action)
         }
-        userViewModel.searchList.observe(viewLifecycleOwner) { searchResult ->
-            rvAdapter.submitList(searchResult)
-        }
-        binding.searchBar.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+        binding.searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 return true
             }
 
             override fun onQueryTextChange(p0: String?): Boolean {
                 p0?.let {
-                    userViewModel.searchUsers(it)
+                    userViewModel.searchUsers(p0)
+                    userViewModel.searchList.observe(viewLifecycleOwner){result ->
+                        rvAdapter.submitList(result)
+                    }
                 }
+
                 return true
             }
-
         })
-
-    }
+        }
 
     private fun setUpRV() {
         rvAdapter = UserAdapter()
