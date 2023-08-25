@@ -45,8 +45,7 @@ class UserViewModel @Inject constructor(
 
     fun searchUsers(searchQuery: String) {
         viewModelScope.launch {
-            val formattedQuery = "%$searchQuery%"
-            val searchUser = userRepository.searchUserByName(formattedQuery)
+            val searchUser = userRepository.searchUserByName(searchQuery)
             _searchList.postValue(searchUser)
         }
 

@@ -39,8 +39,7 @@ class UserRepository @Inject constructor(
     }
 
     suspend fun searchUserByName(searchQuery: String): List<UserEntity> {
-        val formattedQuery = "%$searchQuery%"
-        return userDao.searchUserByName(formattedQuery)
+        return userDao.searchUserByName(searchQuery)
     }
 
 }
