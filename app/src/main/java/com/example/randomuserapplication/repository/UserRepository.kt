@@ -37,4 +37,9 @@ class UserRepository @Inject constructor(
     suspend fun getSingleUserById(userId: String): UserEntity {
         return userDao.getSingleUserById(userId)
     }
+
+    suspend fun searchUserByName(searchQuery: String): List<UserEntity> {
+        return userDao.searchUserByName(searchQuery)
+    }
+
 }

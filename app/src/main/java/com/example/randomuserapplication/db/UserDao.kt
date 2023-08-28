@@ -17,4 +17,7 @@ interface UserDao {
     @Query("SELECT * FROM $USER_TABLE WHERE ID = :id")
     suspend fun getSingleUserById(id: String): UserEntity
 
+    @Query("SELECT * FROM $USER_TABLE WHERE FirstName LIKE :searchQuery OR LastName LIKE :searchQuery")
+    suspend fun searchUserByName(searchQuery: String) : List<UserEntity>
+
 }
