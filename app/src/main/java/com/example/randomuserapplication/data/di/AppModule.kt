@@ -1,9 +1,9 @@
-package com.example.randomuserapplication.di
+package com.example.randomuserapplication.data.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.randomuserapplication.db.UserDao
-import com.example.randomuserapplication.db.UserDatabase
+import com.example.randomuserapplication.data.db.UserDao
+import com.example.randomuserapplication.data.db.UserDatabase
 import com.example.randomuserapplication.network.UserService
 import com.example.randomuserapplication.util.Constants.BASE_URL
 import com.example.randomuserapplication.util.Constants.USER_DATABASE

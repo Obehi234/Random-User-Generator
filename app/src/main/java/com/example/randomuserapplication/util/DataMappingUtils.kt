@@ -1,10 +1,10 @@
 package com.example.randomuserapplication.util
 
-import com.example.randomuserapplication.db.UserEntity
-import com.example.randomuserapplication.model.Result
+import com.example.randomuserapplication.data.db.UserEntity
+import com.example.randomuserapplication.data.model.Result
 
 object DataMappingUtils {
-    fun mapResultToUserEntity(result:Result): UserEntity {
+    fun mapResultToUserEntity(result: Result): UserEntity {
         return UserEntity(
             city = result.location.city,
             country = result.location.country,

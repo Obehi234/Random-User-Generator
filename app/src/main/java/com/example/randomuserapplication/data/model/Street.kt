@@ -1,4 +1,4 @@
-package com.example.randomuserapplication.model
+package com.example.randomuserapplication.data.model
 
 data class Street(
     val name: String,

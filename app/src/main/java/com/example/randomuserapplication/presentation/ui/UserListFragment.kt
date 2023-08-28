@@ -8,9 +8,9 @@ import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.example.randomuserapplication.adapter.UserAdapter
+import com.example.randomuserapplication.presentation.adapter.UserAdapter
 import com.example.randomuserapplication.databinding.FragmentUserListBinding
-import com.example.randomuserapplication.viewmodel.UserViewModel
+import com.example.randomuserapplication.presentation.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

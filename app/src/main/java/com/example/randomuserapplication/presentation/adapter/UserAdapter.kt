@@ -1,4 +1,4 @@
-package com.example.randomuserapplication.adapter
+package com.example.randomuserapplication.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.randomuserapplication.R
 import com.example.randomuserapplication.databinding.UserGridBinding
-import com.example.randomuserapplication.db.UserEntity
+import com.example.randomuserapplication.data.db.UserEntity
 import com.squareup.picasso.Picasso
 
 class UserAdapter : ListAdapter<UserEntity, UserAdapter.UserViewHolder>(UserDiffCallback()) {

@@ -1,4 +1,4 @@
-package com.example.randomuserapplication.db
+package com.example.randomuserapplication.data.db
 
 import androidx.room.Dao
 import androidx.room.Insert

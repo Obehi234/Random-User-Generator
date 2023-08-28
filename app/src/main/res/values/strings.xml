@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Random User Application</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="john_doe">John Doe</string>
     <string name="contact">Contact</string>
@@ -9,11 +8,12 @@
     <string name="followSuccess">Follow Successful!</string>
     <string name="userCity">City,</string>
     <string name="custom_query_hint">Search User …</string>
-    <string name="userTitle">Title</string>
-    <string name="userName">Name</string>
-    <string name="userGender">Gender</string>
-    <string name="userAge">Age</string>
-    <string name="userAddress">Address</string>
-    <string name="userLogInName">LogIn_Name</string>
+    <string name="userTitle">Title: %1$s</string>
+    <string name="userName">Name: %1$s, %2$s</string>
+    <string name="userGender">Gender: %1$s</string>
+    <string name="userAge">Age: %1$s</string>
+    <string name="userLogInName">LogIn_Name: %1$s</string>
     <string name="UserProfileImage">User Profile Image</string>
+    <string name="user_address">Address: %1$d, %2$s, %3$s, %4$s, %5$s</string>
+
 </resources>
